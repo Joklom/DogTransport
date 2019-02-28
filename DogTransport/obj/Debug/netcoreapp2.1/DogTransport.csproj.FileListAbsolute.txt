@@ -1,4 +1,3 @@
-/Users/jaredfinkelson/Projects/DogTransport/DogTransport/bin/Debug/netcoreapp2.1/app.db
 /Users/jaredfinkelson/Projects/DogTransport/DogTransport/bin/Debug/netcoreapp2.1/DogTransport.deps.json
 /Users/jaredfinkelson/Projects/DogTransport/DogTransport/bin/Debug/netcoreapp2.1/DogTransport.runtimeconfig.json
 /Users/jaredfinkelson/Projects/DogTransport/DogTransport/bin/Debug/netcoreapp2.1/DogTransport.runtimeconfig.dev.json
