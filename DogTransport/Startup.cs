@@ -35,8 +35,10 @@ namespace DogTransport
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("ApplicationDBContext")));
+                
+/*                 options.UseSqlite(
+                    Configuration.GetConnectionString("DefaultConnection"))); */
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
