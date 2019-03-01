@@ -33,3 +33,4 @@
 /Users/jaredfinkelson/Projects/DogTransport/DogTransport/obj/Debug/netcoreapp2.1/DogTransport.dll
 /Users/jaredfinkelson/Projects/DogTransport/DogTransport/obj/Debug/netcoreapp2.1/DogTransport.pdb
 /Users/jaredfinkelson/Projects/DogTransport/DogTransport/obj/Debug/netcoreapp2.1/DogTransport.csproj.CopyComplete
+/Users/jaredfinkelson/Projects/DogTransport/DogTransport/bin/Debug/netcoreapp2.1/app.db
