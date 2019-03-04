@@ -12,6 +12,7 @@ namespace DogTransport.Models
         public Location Origin { get; set; }
         public Location Destination { get; set; }
         public DateTime Date { get; set; }
-        
+        public Leg[] Legs { get; set; }
+        public Comment[] Comments { get; set; }
     }
 }
