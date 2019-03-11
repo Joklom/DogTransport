@@ -1,7 +1,8 @@
 @using Microsoft.AspNetCore.Identity
+@using DogTransport.Areas.Identity.Data
 
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<DogTransportUser> SignInManager
+@inject UserManager<DogTransportUser> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {

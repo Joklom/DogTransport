@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using DogTransport.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using DogTransport.Areas.Identity.Data;
 
 namespace DogTransport
 {
@@ -34,11 +35,11 @@ namespace DogTransport
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("AzureSQL")));
-//                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDbContext<Data.ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("AzureSQL")));                
+                //options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDefaultIdentity<DogTransportUser>()
+                .AddEntityFrameworkStores<Data.ApplicationDbContext>();
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
