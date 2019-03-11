@@ -14,13 +14,13 @@ namespace DogTransport.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {
-        private readonly UserManager<DogTransportUser> _userManager;
-        private readonly SignInManager<DogTransportUser> _signInManager;
+        private readonly UserManager<AspNetUser> _userManager;
+        private readonly SignInManager<AspNetUser> _signInManager;
         private readonly IEmailSender _emailSender;
 
         public IndexModel(
-            UserManager<DogTransportUser> userManager,
-            SignInManager<DogTransportUser> signInManager,
+            UserManager<AspNetUser> userManager,
+            SignInManager<AspNetUser> signInManager,
             IEmailSender emailSender)
         {
             _userManager = userManager;

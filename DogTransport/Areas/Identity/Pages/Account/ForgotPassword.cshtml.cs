@@ -15,10 +15,10 @@ namespace DogTransport.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ForgotPasswordModel : PageModel
     {
-        private readonly UserManager<DogTransportUser> _userManager;
+        private readonly UserManager<AspNetUser> _userManager;
         private readonly IEmailSender _emailSender;
 
-        public ForgotPasswordModel(UserManager<DogTransportUser> userManager, IEmailSender emailSender)
+        public ForgotPasswordModel(UserManager<AspNetUser> userManager, IEmailSender emailSender)
         {
             _userManager = userManager;
             _emailSender = emailSender;

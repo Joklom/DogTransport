@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DogTransport.Areas.Identity.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<DogTransportUser>
+    public class ApplicationDbContext : IdentityDbContext<AspNetUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

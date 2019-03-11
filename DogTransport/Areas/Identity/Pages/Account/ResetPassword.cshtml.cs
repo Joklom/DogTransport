@@ -14,9 +14,9 @@ namespace DogTransport.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ResetPasswordModel : PageModel
     {
-        private readonly UserManager<DogTransportUser> _userManager;
+        private readonly UserManager<AspNetUser> _userManager;
 
-        public ResetPasswordModel(UserManager<DogTransportUser> userManager)
+        public ResetPasswordModel(UserManager<AspNetUser> userManager)
         {
             _userManager = userManager;
         }

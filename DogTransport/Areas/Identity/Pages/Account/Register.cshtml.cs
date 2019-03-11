@@ -16,14 +16,14 @@ namespace DogTransport.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<DogTransportUser> _signInManager;
-        private readonly UserManager<DogTransportUser> _userManager;
+        private readonly SignInManager<AspNetUser> _signInManager;
+        private readonly UserManager<AspNetUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<DogTransportUser> userManager,
-            SignInManager<DogTransportUser> signInManager,
+            UserManager<AspNetUser> userManager,
+            SignInManager<AspNetUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -75,7 +75,7 @@ namespace DogTransport.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new DogTransportUser 
+                var user = new AspNetUser 
                 { 
                     UserName = Input.Email, 
                     Email = Input.Email,

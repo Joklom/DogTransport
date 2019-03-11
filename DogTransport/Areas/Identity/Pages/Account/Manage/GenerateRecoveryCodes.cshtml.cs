@@ -12,11 +12,11 @@ namespace DogTransport.Areas.Identity.Pages.Account.Manage
 {
     public class GenerateRecoveryCodesModel : PageModel
     {
-        private readonly UserManager<DogTransportUser> _userManager;
+        private readonly UserManager<AspNetUser> _userManager;
         private readonly ILogger<GenerateRecoveryCodesModel> _logger;
 
         public GenerateRecoveryCodesModel(
-            UserManager<DogTransportUser> userManager,
+            UserManager<AspNetUser> userManager,
             ILogger<GenerateRecoveryCodesModel> logger)
         {
             _userManager = userManager;

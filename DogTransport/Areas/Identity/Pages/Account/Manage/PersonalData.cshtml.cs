@@ -9,11 +9,11 @@ namespace DogTransport.Areas.Identity.Pages.Account.Manage
 {
     public class PersonalDataModel : PageModel
     {
-        private readonly UserManager<DogTransportUser> _userManager;
+        private readonly UserManager<AspNetUser> _userManager;
         private readonly ILogger<PersonalDataModel> _logger;
 
         public PersonalDataModel(
-            UserManager<DogTransportUser> userManager,
+            UserManager<AspNetUser> userManager,
             ILogger<PersonalDataModel> logger)
         {
             _userManager = userManager;

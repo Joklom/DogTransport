@@ -16,13 +16,13 @@ namespace DogTransport.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ExternalLoginModel : PageModel
     {
-        private readonly SignInManager<DogTransportUser> _signInManager;
-        private readonly UserManager<DogTransportUser> _userManager;
+        private readonly SignInManager<AspNetUser> _signInManager;
+        private readonly UserManager<AspNetUser> _userManager;
         private readonly ILogger<ExternalLoginModel> _logger;
 
         public ExternalLoginModel(
-            SignInManager<DogTransportUser> signInManager,
-            UserManager<DogTransportUser> userManager,
+            SignInManager<AspNetUser> signInManager,
+            UserManager<AspNetUser> userManager,
             ILogger<ExternalLoginModel> logger)
         {
             _signInManager = signInManager;
@@ -115,7 +115,7 @@ namespace DogTransport.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var user = new DogTransportUser { UserName = Input.Email, Email = Input.Email };
+                var user = new AspNetUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

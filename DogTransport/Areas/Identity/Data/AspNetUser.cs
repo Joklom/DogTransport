@@ -9,8 +9,8 @@ using DogTransport.Models;
 
 namespace DogTransport.Areas.Identity.Data
 {
-    // Add profile data for application users by adding properties to the DogTransportUser class
-    public class DogTransportUser : IdentityUser
+    // Add profile data for application users by adding properties to the AspNetUser class
+    public class AspNetUser : IdentityUser
     {
         [Required]
         public string First { get; set; }

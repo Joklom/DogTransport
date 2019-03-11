@@ -13,9 +13,9 @@ namespace DogTransport.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ConfirmEmailModel : PageModel
     {
-        private readonly UserManager<DogTransportUser> _userManager;
+        private readonly UserManager<AspNetUser> _userManager;
 
-        public ConfirmEmailModel(UserManager<DogTransportUser> userManager)
+        public ConfirmEmailModel(UserManager<AspNetUser> userManager)
         {
             _userManager = userManager;
         }

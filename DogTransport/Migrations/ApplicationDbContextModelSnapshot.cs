@@ -16,7 +16,7 @@ namespace DogTransport.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.1-rtm-30846");
 
-            modelBuilder.Entity("DogTransport.Areas.Identity.Data.DogTransportUser", b =>
+            modelBuilder.Entity("DogTransport.Areas.Identity.Data.AspNetUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -31,9 +31,11 @@ namespace DogTransport.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("First");
+                    b.Property<string>("First")
+                        .IsRequired();
 
-                    b.Property<string>("Last");
+                    b.Property<string>("Last")
+                        .IsRequired();
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -72,52 +74,6 @@ namespace DogTransport.Migrations
                     b.HasIndex("RescueID");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("DogTransport.Areas.Identity.Models.DogTransportUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("AccessFailedCount");
-
-                    b.Property<string>("ConcurrencyStamp");
-
-                    b.Property<DateTime>("DOB");
-
-                    b.Property<string>("Email");
-
-                    b.Property<bool>("EmailConfirmed");
-
-                    b.Property<bool>("LockoutEnabled");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("NormalizedEmail");
-
-                    b.Property<string>("NormalizedUserName");
-
-                    b.Property<string>("PasswordHash");
-
-                    b.Property<string>("PhoneNumber");
-
-                    b.Property<bool>("PhoneNumberConfirmed");
-
-                    b.Property<Guid?>("RescueID");
-
-                    b.Property<string>("SecurityStamp");
-
-                    b.Property<bool>("TwoFactorEnabled");
-
-                    b.Property<string>("UserName");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RescueID");
-
-                    b.ToTable("DogTransportUser");
                 });
 
             modelBuilder.Entity("DogTransport.Models.Rescue", b =>
@@ -241,16 +197,9 @@ namespace DogTransport.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("DogTransport.Areas.Identity.Data.DogTransportUser", b =>
+            modelBuilder.Entity("DogTransport.Areas.Identity.Data.AspNetUser", b =>
                 {
                     b.HasOne("DogTransport.Models.Rescue", "Rescue")
-                        .WithMany()
-                        .HasForeignKey("RescueID");
-                });
-
-            modelBuilder.Entity("DogTransport.Areas.Identity.Models.DogTransportUser", b =>
-                {
-                    b.HasOne("DogTransport.Models.Rescue")
                         .WithMany("Admins")
                         .HasForeignKey("RescueID");
                 });
@@ -265,7 +214,7 @@ namespace DogTransport.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("DogTransport.Areas.Identity.Data.DogTransportUser")
+                    b.HasOne("DogTransport.Areas.Identity.Data.AspNetUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -273,7 +222,7 @@ namespace DogTransport.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("DogTransport.Areas.Identity.Data.DogTransportUser")
+                    b.HasOne("DogTransport.Areas.Identity.Data.AspNetUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -286,7 +235,7 @@ namespace DogTransport.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("DogTransport.Areas.Identity.Data.DogTransportUser")
+                    b.HasOne("DogTransport.Areas.Identity.Data.AspNetUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -294,7 +243,7 @@ namespace DogTransport.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("DogTransport.Areas.Identity.Data.DogTransportUser")
+                    b.HasOne("DogTransport.Areas.Identity.Data.AspNetUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

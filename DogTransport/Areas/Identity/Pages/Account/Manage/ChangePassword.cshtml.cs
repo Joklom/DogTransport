@@ -12,13 +12,13 @@ namespace DogTransport.Areas.Identity.Pages.Account.Manage
 {
     public class ChangePasswordModel : PageModel
     {
-        private readonly UserManager<DogTransportUser> _userManager;
-        private readonly SignInManager<DogTransportUser> _signInManager;
+        private readonly UserManager<AspNetUser> _userManager;
+        private readonly SignInManager<AspNetUser> _signInManager;
         private readonly ILogger<ChangePasswordModel> _logger;
 
         public ChangePasswordModel(
-            UserManager<DogTransportUser> userManager,
-            SignInManager<DogTransportUser> signInManager,
+            UserManager<AspNetUser> userManager,
+            SignInManager<AspNetUser> signInManager,
             ILogger<ChangePasswordModel> logger)
         {
             _userManager = userManager;

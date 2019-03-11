@@ -12,12 +12,12 @@ namespace DogTransport.Areas.Identity.Pages.Account.Manage
 {
     public class ExternalLoginsModel : PageModel
     {
-        private readonly UserManager<DogTransportUser> _userManager;
-        private readonly SignInManager<DogTransportUser> _signInManager;
+        private readonly UserManager<AspNetUser> _userManager;
+        private readonly SignInManager<AspNetUser> _signInManager;
 
         public ExternalLoginsModel(
-            UserManager<DogTransportUser> userManager,
-            SignInManager<DogTransportUser> signInManager)
+            UserManager<AspNetUser> userManager,
+            SignInManager<AspNetUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
