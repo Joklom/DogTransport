@@ -10,6 +10,7 @@ namespace DogTransport.Models
         public AspNetUser Organizer { get; set; }
         public Location Origin { get; set; }
         public Location Destination { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
         public Leg[] Legs { get; set; }
         public Comment[] Comments { get; set; }

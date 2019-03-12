@@ -15,6 +15,8 @@ namespace DogTransport.Data
         {
         }
 
+        public DbSet<DogTransport.Models.Transport> Transport { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -22,5 +24,7 @@ namespace DogTransport.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+
     }
 }
+

@@ -66,4 +66,9 @@
 /Users/jaredfinkelson/Projects/DogTransport/DogTransport/obj/Debug/netcoreapp2.1/Razor/Areas/Identity/Pages/Account/ResetPassword.g.cshtml.cs
 /Users/jaredfinkelson/Projects/DogTransport/DogTransport/obj/Debug/netcoreapp2.1/Razor/Areas/Identity/Pages/Account/ResetPasswordConfirmation.g.cshtml.cs
 /Users/jaredfinkelson/Projects/DogTransport/DogTransport/obj/Debug/netcoreapp2.1/Razor/Areas/Identity/Pages/Error.g.cshtml.cs
+/Users/jaredfinkelson/Projects/DogTransport/DogTransport/obj/Debug/netcoreapp2.1/Razor/Pages/Transports/Create.g.cshtml.cs
+/Users/jaredfinkelson/Projects/DogTransport/DogTransport/obj/Debug/netcoreapp2.1/Razor/Pages/Transports/Delete.g.cshtml.cs
+/Users/jaredfinkelson/Projects/DogTransport/DogTransport/obj/Debug/netcoreapp2.1/Razor/Pages/Transports/Details.g.cshtml.cs
+/Users/jaredfinkelson/Projects/DogTransport/DogTransport/obj/Debug/netcoreapp2.1/Razor/Pages/Transports/Edit.g.cshtml.cs
+/Users/jaredfinkelson/Projects/DogTransport/DogTransport/obj/Debug/netcoreapp2.1/Razor/Pages/Transports/Index.g.cshtml.cs
 /Users/jaredfinkelson/Projects/DogTransport/DogTransport/bin/Debug/netcoreapp2.1/app.db

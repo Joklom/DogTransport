@@ -76,6 +76,122 @@ namespace DogTransport.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("DogTransport.Models.Comment", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AuthorId");
+
+                    b.Property<DateTime>("Date");
+
+                    b.Property<Guid?>("LegID");
+
+                    b.Property<string>("Text");
+
+                    b.Property<Guid?>("TransportID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("LegID");
+
+                    b.HasIndex("TransportID");
+
+                    b.ToTable("Comment");
+                });
+
+            modelBuilder.Entity("DogTransport.Models.Dog", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Aggressive");
+
+                    b.Property<bool>("BiteHistory");
+
+                    b.Property<string>("Description");
+
+                    b.Property<Guid?>("LegID");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("OwnerId");
+
+                    b.Property<string>("SpecialNeeds");
+
+                    b.Property<bool>("kennel");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("LegID");
+
+                    b.HasIndex("OwnerId");
+
+                    b.ToTable("Dog");
+                });
+
+            modelBuilder.Entity("DogTransport.Models.Leg", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Bathroom");
+
+                    b.Property<DateTime>("Date");
+
+                    b.Property<Guid?>("DestinationID");
+
+                    b.Property<bool>("Fed");
+
+                    b.Property<string>("OrganizerId");
+
+                    b.Property<Guid?>("OriginID");
+
+                    b.Property<Guid?>("TransportID");
+
+                    b.Property<bool>("Watered");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("DestinationID");
+
+                    b.HasIndex("OrganizerId");
+
+                    b.HasIndex("OriginID");
+
+                    b.HasIndex("TransportID");
+
+                    b.ToTable("Leg");
+                });
+
+            modelBuilder.Entity("DogTransport.Models.Location", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AddressLine1");
+
+                    b.Property<string>("AddressLine2");
+
+                    b.Property<string>("AddressLine3");
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("State");
+
+                    b.Property<string>("Zip");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Location");
+                });
+
             modelBuilder.Entity("DogTransport.Models.Rescue", b =>
                 {
                     b.Property<Guid>("ID")
@@ -84,6 +200,30 @@ namespace DogTransport.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Rescue");
+                });
+
+            modelBuilder.Entity("DogTransport.Models.Transport", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Date");
+
+                    b.Property<Guid?>("DestinationID");
+
+                    b.Property<string>("OrganizerId");
+
+                    b.Property<Guid?>("OriginID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("DestinationID");
+
+                    b.HasIndex("OrganizerId");
+
+                    b.HasIndex("OriginID");
+
+                    b.ToTable("Transport");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -202,6 +342,66 @@ namespace DogTransport.Migrations
                     b.HasOne("DogTransport.Models.Rescue", "Rescue")
                         .WithMany("Admins")
                         .HasForeignKey("RescueID");
+                });
+
+            modelBuilder.Entity("DogTransport.Models.Comment", b =>
+                {
+                    b.HasOne("DogTransport.Areas.Identity.Data.AspNetUser", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId");
+
+                    b.HasOne("DogTransport.Models.Leg")
+                        .WithMany("Comments")
+                        .HasForeignKey("LegID");
+
+                    b.HasOne("DogTransport.Models.Transport")
+                        .WithMany("Comments")
+                        .HasForeignKey("TransportID");
+                });
+
+            modelBuilder.Entity("DogTransport.Models.Dog", b =>
+                {
+                    b.HasOne("DogTransport.Models.Leg")
+                        .WithMany("Dogs")
+                        .HasForeignKey("LegID");
+
+                    b.HasOne("DogTransport.Areas.Identity.Data.AspNetUser", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerId");
+                });
+
+            modelBuilder.Entity("DogTransport.Models.Leg", b =>
+                {
+                    b.HasOne("DogTransport.Models.Location", "Destination")
+                        .WithMany()
+                        .HasForeignKey("DestinationID");
+
+                    b.HasOne("DogTransport.Areas.Identity.Data.AspNetUser", "Organizer")
+                        .WithMany()
+                        .HasForeignKey("OrganizerId");
+
+                    b.HasOne("DogTransport.Models.Location", "Origin")
+                        .WithMany()
+                        .HasForeignKey("OriginID");
+
+                    b.HasOne("DogTransport.Models.Transport")
+                        .WithMany("Legs")
+                        .HasForeignKey("TransportID");
+                });
+
+            modelBuilder.Entity("DogTransport.Models.Transport", b =>
+                {
+                    b.HasOne("DogTransport.Models.Location", "Destination")
+                        .WithMany()
+                        .HasForeignKey("DestinationID");
+
+                    b.HasOne("DogTransport.Areas.Identity.Data.AspNetUser", "Organizer")
+                        .WithMany()
+                        .HasForeignKey("OrganizerId");
+
+                    b.HasOne("DogTransport.Models.Location", "Origin")
+                        .WithMany()
+                        .HasForeignKey("OriginID");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
