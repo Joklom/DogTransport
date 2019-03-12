@@ -37,13 +37,13 @@ namespace DogTransport
             });
 
             services.AddDbContext<Data.ApplicationDbContext>(options =>
-                //options.UseSqlServer(Configuration.GetConnectionString("AzureSQL")));               
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("AzureSQL")));               
+                //options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<AspNetUser>()
                 .AddEntityFrameworkStores<Data.ApplicationDbContext>();
             services.AddDbContext<Data.ApplicationDbContext>(options =>
-                //options.UseSqlServer(Configuration.GetConnectionString("AzureSQL")));
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("AzureSQL")));
+                //options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
