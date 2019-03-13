@@ -5,3 +5,20 @@
 DogTransport/bin/
 DogTransport/obj/
 DogTransport/Migrations/
+
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Compressed files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
