@@ -1,2 +1,7 @@
-**/bin/
-**/obj/
+# Ignore Visual Studio Code file
+.vscode/
+
+# Remove environmental and binary files
+DogTransport/bin/
+DogTransport/obj/
+DogTransport/Migrations/
