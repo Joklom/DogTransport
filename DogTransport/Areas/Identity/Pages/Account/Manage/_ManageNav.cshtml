@@ -1,4 +1,6 @@
-@inject SignInManager<IdentityUser> SignInManager
+@using DogTransport.Areas.Identity.Data
+
+@inject SignInManager<AspNetUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
