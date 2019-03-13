@@ -1,5 +1,6 @@
 # Ignore Visual Studio Code file
 .vscode/
+.DS_Store
 
 # Remove environmental and binary files
 DogTransport/bin/
