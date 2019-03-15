@@ -2,9 +2,7 @@
 
 ## Useful Bash commands
 
-### sub sub?
-
-**ASP.Net Core**
+###ASP.Net Core
 
 Build project and its dependencies:
 ```bash
@@ -16,7 +14,7 @@ Run the application:
 dotnet run
 ```
 
-**Entity Framework**
+###Entity Framework
 
 Delete the last ef migration:
 ```bash
@@ -25,7 +23,7 @@ dotnet ef migrations remove --context DogTransport.Models.ModelsContext
 
 Create a new ef migration:
 ```bash
-dotnet ef migrations add MigrationName --context DogTransport.Data.ApplicationDBContext
+dotnet ef migrations add **MigrationName** --context DogTransport.Data.ApplicationDBContext
 ```
 
 Update the database with new migration:
@@ -33,7 +31,7 @@ Update the database with new migration:
 dotnet ef database update --context DogTransport.Data.ApplicationDBContext
 ```
 
-**ASP.NET Code Generator**
+###ASP.NET Code Generator
 
 List files available to be generated:
 ```bash
