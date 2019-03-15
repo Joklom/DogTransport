@@ -2,6 +2,18 @@
 
 ## Useful Bash commands
 
+**ASP.Net Core**
+
+Build project and its dependencies:
+```bash
+dotnet build
+```
+
+Run the application:
+```bash
+dotnet run
+```
+
 **Entity Framework**
 
 Delete the last ef migration:
