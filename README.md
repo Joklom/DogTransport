@@ -20,6 +20,7 @@ dotnet ef database update --context DogTransport.Data.ApplicationDBContext
 ```
 
 **ASP.NET Code Generator**
+
 List files available to be generated:
 ```bash
 dotnet aspnet-codegenerator identity --listFiles
