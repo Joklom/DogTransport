@@ -23,7 +23,15 @@ Lines 41 and 46 should be uncommented out:
 
 ### Step 2: Create a database migration
 
+When you clone the repository, there should not be a `Migrations/` folder or a database (`app.db`) but you may end up with these files from previous work, or accidental addition to the repository. If you have these files locally you may not need to do a migration, but the database will probably get cluttered fast and need to be deleted.
 
+You can pretty much just delete `Migrations/` and `app.db` whenever you want and it will not break anything. There are also limitations to SQLite that will force you to delete them because you can't update the database to do what you need to do. You *will* lose all of the data in the database so this does not work in production.
+
+To perform a database migration to to the project folder and run the following Bash command:
+```bash
+dotnet ef migrations add CreateDatabase --context DogTransport.Data.ApplicationDBContext
+dotnet ef database update --context DogTransport.Data.ApplicationDBContext
+```
 
 ## Useful Bash commands
 

@@ -2,10 +2,11 @@
 .vscode/
 .DS_Store
 
-# Remove environmental and binary files
+# Remove environmental and binary files and local database
 DogTransport/bin/
 DogTransport/obj/
 DogTransport/Migrations/
+*.db
 
 *.com
 *.class
