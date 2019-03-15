@@ -1,5 +1,11 @@
 # DogTransport
 
+## How to run the application locally
+
+The master branch of the GitHub repository is desgined to run in an Azure Webapp and makes use of environmental variables to obscure the AzureSQL connection string. So you may have to make some changes to the code to configure it to run using a local SQLite database.
+
+
+
 ## Useful Bash commands
 
 ### ASP.Net Core
