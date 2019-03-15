@@ -7,7 +7,6 @@ The master branch of the GitHub repository is desgined to run in an Azure Webapp
 ### Step 1: Modify startup.cs
 
 The `Startup.cs` file must be modified to use SQLite instead of SQL Server in order to run locally. At the time this was written lines 40 and 45 of `Startup.cs` must be commented out:
-
 ```c#
 40  options.UseSqlServer(Configuration.GetConnectionString("AzureSQL")));  
 ...
@@ -75,4 +74,5 @@ dotnet aspnet-codegenerator identity --listFiles
 Generate code
 ```bash
 dotnet aspnet-codegenerator identity --files "Files.To.Be.Generated"
+// Be sure to change the files to be generated string as necessary
 ```
