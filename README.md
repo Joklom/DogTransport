@@ -27,7 +27,7 @@ When you clone the repository, there should not be a `Migrations/` folder or a d
 
 You can pretty much just delete `Migrations/` and `app.db` whenever you want and it will not break anything. There are also limitations to SQLite that will force you to delete them because you can't update the database to do what you need to do. You *will* lose all of the data in the database so this does not work in production.
 
-To perform a database migration to to the project folder and run the following Bash command:
+To perform a database migration go to the project folder and run the following Bash command:
 ```bash
 dotnet ef migrations add CreateDatabase --context DogTransport.Data.ApplicationDBContext
 dotnet ef database update --context DogTransport.Data.ApplicationDBContext
