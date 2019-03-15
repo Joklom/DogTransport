@@ -24,6 +24,7 @@ dotnet ef migrations remove --context DogTransport.Models.ModelsContext
 Create a new ef migration:
 ```bash
 dotnet ef migrations add MigrationName --context DogTransport.Data.ApplicationDBContext
+// Be sure to change the migration name as necessary
 ```
 
 Update the database with new migration:
