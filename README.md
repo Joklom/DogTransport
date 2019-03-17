@@ -76,3 +76,9 @@ Generate code:
 dotnet aspnet-codegenerator identity --files "Files.To.Be.Generated"
 // Be sure to change the files to be generated string as necessary
 ```
+
+## Helpful YouTube videos
+
+[GIT Workflow - Georgia Tech - Software Development Process](https://www.youtube.com/watch?v=3a2x1iJFJWc)
+
+[GitHub Flow Tutorial: Basic workflow for git](https://www.youtube.com/watch?v=GgjIvUrOpmg)
