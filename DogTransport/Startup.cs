@@ -19,12 +19,15 @@ namespace DogTransport
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
+
+            HostingEnvironment = env;
         }
 
         public IConfiguration Configuration { get; }
+        public IHostingEnvironment HostingEnvironment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -36,14 +39,25 @@ namespace DogTransport
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<Data.ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("AzureSQL")));               
-                //options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<AspNetUser>()
                 .AddEntityFrameworkStores<Data.ApplicationDbContext>();
-            services.AddDbContext<Data.ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("AzureSQL")));
-                //options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+
+            if (HostingEnvironment.IsDevelopment())
+            {
+                services.AddDbContext<Data.ApplicationDbContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+
+                services.AddDbContext<Data.ApplicationDbContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            }
+            else
+            {
+                services.AddDbContext<Data.ApplicationDbContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("AzureSQL")));
+
+                services.AddDbContext<Data.ApplicationDbContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("AzureSQL")));
+            }
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
