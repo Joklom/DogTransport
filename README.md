@@ -2,25 +2,7 @@
 
 ## How to run the application locally
 
-The master branch of the GitHub repository is desgined to run in an Azure Webapp and makes use of environmental variables to obscure the AzureSQL connection string. So you may have to make some changes to the code to configure it to run using a local SQLite database.
-
-### Step 1: Modify startup.cs
-
-The `Startup.cs` file must be modified to use SQLite instead of SQL Server in order to run locally. At the time this was written lines [40](https://github.com/Joklom/DogTransport/blob/1fc976c9f279be4c52dafd9745604666cb69fab8/DogTransport/Startup.cs#L40) and [45](https://github.com/Joklom/DogTransport/blob/1fc976c9f279be4c52dafd9745604666cb69fab8/DogTransport/Startup.cs#L45) of `Startup.cs` must be commented out:
-```c#
-40  options.UseSqlServer(Configuration.GetConnectionString("AzureSQL")));  
-...
-45  options.UseSqlServer(Configuration.GetConnectionString("AzureSQL")));
-```
-
-Lines [41](https://github.com/Joklom/DogTransport/blob/1fc976c9f279be4c52dafd9745604666cb69fab8/DogTransport/Startup.cs#L41) and [46](https://github.com/Joklom/DogTransport/blob/1fc976c9f279be4c52dafd9745604666cb69fab8/DogTransport/Startup.cs#L46) should be uncommented out:
-```c#
-41  options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-...
-46  options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-```
-
-### Step 2: Create a database migration
+In production the application makes use of environmental variables to obscure the AzureSQL connection string. In development on your local machine you will be using a disposible SQLite database so you will probably need to do a database migration before the application will run locally.
 
 When you clone the repository, there should not be a `Migrations/` folder or a database (`app.db`) but you may end up with these files from previous work, or accidental addition to the repository. If you have these files locally you may not need to do a migration, but the database will probably get cluttered fast and need to be deleted.
 
