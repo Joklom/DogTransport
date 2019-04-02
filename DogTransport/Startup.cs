@@ -58,7 +58,11 @@ namespace DogTransport
                 services.AddDbContext<Data.ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("AzureSQL")));
             }
-
+            services.AddAuthentication().AddFacebook(fb =>
+            {
+                fb.AppId = "383100735860493";
+                fb.AppSecret = "8bdfaea631f0d53388846d379fae7dc6";
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
